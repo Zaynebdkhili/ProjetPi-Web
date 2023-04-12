@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Echange{% endblock %}
+
+{% block body %}
+    <h1>Echange</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ echange.id }}</td>
+            </tr>
+            <tr>
+                <th>Id_echange</th>
+                <td>{{ echange.idEchange }}</td>
+            </tr>
+            <tr>
+                <th>Date_echange</th>
+                <td>{{ echange.dateEchange ? echange.dateEchange|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ echange.statut }}</td>
+            </tr>
+            <tr>
+                <th>Confirmation</th>
+                <td>{{ echange.confirmation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_echange_index') }}">back to list</a>
+
+    <a href="{{ path('app_echange_edit', {'id': echange.id}) }}">edit</a>
+
+    {{ include('echange/_delete_form.html.twig') }}
+{% endblock %}
